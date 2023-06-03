@@ -7,12 +7,17 @@ This is a personal blog website built with Django. It allows users to create, re
 - User-friendly interface for managing blog posts
 - Browse and read blog posts
 - Responsive design for optimal viewing on different devices
+- Display blog posts with pagination
+- Search functionality to find specific posts
+- Dark mode toggle for a personalized viewing experience
 
 ## Technologies Used
 
 - Django
 - HTML/CSS
 - JavaScript
+- Tailwind CSS
+- Font Awesome
 
 ## Installation
 
