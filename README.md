@@ -49,6 +49,34 @@ python manage.py runserver
 
 7. Access the application at [http://localhost:8000](http://localhost:8000) in your web browser.
 
+## Database Setup
+
+This project uses PostgreSQL as the database backend. Follow the steps below to set up the database:
+
+1. Install PostgreSQL on your system if you haven't already. You can download it from the official website: [PostgreSQL Downloads](https://www.postgresql.org/download/).
+
+2. Create a new PostgreSQL database for your blog. You can do this using the command line or a graphical interface like pgAdmin.
+
+3. In the project's root directory, open the `settings.py` file located in the `blogproject` folder.
+
+4. Find the `DATABASES` section and update the following settings with your PostgreSQL database details:
+
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'your_database_name',
+           'USER': 'your_username',
+           'PASSWORD': 'your_password',
+           'HOST': 'localhost',
+           'PORT': '5432',
+       }
+   }
+   Replace your_database_name, your_username, and your_password with your actual PostgreSQL database credentials.
+ 
+ 5. Save the settings.py file.
+   
+
 ## Admin Panel
 
 To create, update, or delete blog post content, you can use the Django admin panel.
