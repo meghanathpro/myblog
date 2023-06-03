@@ -134,7 +134,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-Meghanah V
+Meghanath V
 
 ## Contact
 
