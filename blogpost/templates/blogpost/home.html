@@ -1,0 +1,96 @@
+<!-- home.html -->
+{% extends 'blogpost/base.html' %}
+<!-- title -->
+{% block title %} Home | {% if page_number %}Page {{ page_number }}{% endif %}
+{% endblock title %}
+
+<!-- title end -->
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">
+  {% if page_obj.number == 1 %} Latest Posts {% else %} Page {{ page_number}}
+  {%endif %}
+</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {% for post in page_obj %}
+  <div class="bg-gray-200 bg-opacity-30 border border-gray-300 rounded-md p-4">
+    <div class="mb-4">
+      <a href="{% url 'post_detail' slug=post.slug %}">
+        <img
+          src="{{ post.photos.url }}"
+          alt="Post Image"
+          class="w-full h-40 object-cover"
+        />
+      </a>
+    </div>
+    <a href="{% url 'post_detail' slug=post.slug %}">
+      <h2 class="text-xl font-bold mb-2">{{ post.title }}</h2>
+    </a>
+    <div class="flex items-center text-gray-400 text-sm mb-2">
+      <span class="mr-2">{{ post.timestamp }}</span>
+      <span class="mr-2">Views: {{ post.view_count }}</span>
+    </div>
+    <p id="mode-text" class="line-clamp-3">{{ post.content }}</p>
+    <div class="flex flex-wrap mt-2">
+      {% if post.tags %} {% for tag in post.tags %}
+      <a href="{% url 'search' %}?query={{ tag }}" class="mr-1 text-gray-400"
+        >#{{ tag }}</a
+      >
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Pagination navigation -->
+<!-- main if  -->
+{% if page_obj.has_other_pages %}
+<div class="mt-8">
+  <ul class="flex justify-center space-x-2">
+    <!-- if previous page is there  -->
+    {% if page_obj.has_previous %}
+    <li>
+      <a
+        href="?page={{ page_obj.previous_page_number }}"
+        class="bg-gray-200 px-4 py-2 rounded-md"
+        >Previous</a
+      >
+    </li>
+    <!-- End if previous page is there -->
+    {% endif %}
+    <!-- for iteration -->
+    {% for num in page_obj.paginator.page_range %}
+    <!-- if current is same -->
+    {% if num == page_obj.number %}
+    <li>
+      <span class="bg-blue-500 px-4 py-2 rounded-md text-white">{{ num }}</span>
+    </li>
+    <!-- else -->
+    {% else %}
+    <li>
+      <a href="?page={{ num }}" class="bg-gray-200 px-4 py-2 rounded-md"
+        >{{ num }}</a
+      >
+    </li>
+    <!-- end current -->
+    {% endif %}
+    <!-- end for -->
+    {% endfor %}
+    <!-- if next page is there -->
+    {% if page_obj.has_next %}
+    <li>
+      <a
+        href="?page={{ page_obj.next_page_number }}"
+        class="bg-gray-200 px-4 py-2 rounded-md"
+        >Next</a
+      >
+    </li>
+    <!-- End if previous page is there -->
+    {% endif %}
+  </ul>
+</div>
+<!-- main if  ends-->
+{% endif %}
+
+<!-- End block -->
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'blogpost/base.html' %} {% block content %}
+<h1 class="my-6">Search Results for "{{ query }}"</h1>
+{% if posts %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {% for post in posts %}
+  <div class="bg-gray-200 bg-opacity-30 border border-gray-300 rounded-md p-4">
+    <div class="mb-4">
+      <a href="{% url 'post_detail' slug=post.slug %}">
+        <img
+          src="{{ post.photos.url }}"
+          alt="Post Image"
+          class="w-full h-40 object-cover"
+        />
+      </a>
+    </div>
+    <a href="{% url 'post_detail' slug=post.slug %}">
+      <h2 class="text-xl font-bold mb-2">{{ post.title }}</h2>
+    </a>
+    <div class="flex items-center text-gray-400 text-sm mb-2">
+      <span class="mr-2">{{ post.timestamp }}</span>
+      <span id="view-count-{{ post.id }}" class="mr-2"
+        >Views: {{ post.view_count }}</span
+      >
+    </div>
+    <p id="mode-text" class="line-clamp-3">{{ post.content }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>No results found.</p>
+{% endif %} {% endblock %}
