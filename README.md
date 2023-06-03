@@ -142,14 +142,14 @@ For any inquiries or feedback, please email meghanathonline@gmail.com.
 
 ## Screenshots
 
-###Home Page
+### Home Page
 
 ![Screenshot 1](screenshots/screenshot1.png)
 
-###Post Page
+### Post Page
 
 ![Screenshot 2](screenshots/screenshot2.png)
 
-###Search Page
+### Search Page (Dark mode)
 
 ![Screenshot 3](screenshots/screenshot3.png)
