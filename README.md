@@ -57,7 +57,7 @@ This project uses PostgreSQL as the database backend. Follow the steps below to 
 
 2. Create a new PostgreSQL database for your blog. You can do this using the command line or a graphical interface like pgAdmin.
 
-3. In the project's root directory, open the `settings.py` file located in the `blogproject` folder.
+3. In the project's root directory, open the `settings.py` file located in the `myblog` folder.
 
 4. Find the `DATABASES` section and update the following settings with your PostgreSQL database details:
 
