@@ -72,6 +72,7 @@ This project uses PostgreSQL as the database backend. Follow the steps below to 
            'PORT': '5432',
        }
    }
+   ```
    Replace your_database_name, your_username, and your_password with your actual PostgreSQL database credentials.
  
  5. Save the settings.py file.
